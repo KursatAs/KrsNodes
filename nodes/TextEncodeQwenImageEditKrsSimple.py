@@ -89,8 +89,8 @@ class TextEncodeQwenImageEditKrsSimple:
                     resized_vae_image = s.movedim(1, -1)[:, :, :, :3]
                     ref_latents.append(vae.encode(resized_vae_image))
 
-                    # Store the first VAE-resized image for output
-                    if output_image is None:
+                    # Store the VAE-resized image only for image1
+                    if i == 0 and image1 is not None:
                         output_image = resized_vae_image
 
                 image_prompt += "Picture {}: <|vision_start|><|image_pad|><|vision_end|>".format(i + 1)

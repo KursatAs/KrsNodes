@@ -118,7 +118,10 @@ class TextEncodeQwenImageEditKrsAdvanced:
         if len(ref_latents) > 0:
             conditioning = node_helpers.conditioning_set_values(conditioning, {"reference_latents": ref_latents}, append=True)
         # Return latent of first image if available, otherwise return empty latent
-        samples = ref_latents[0] if len(ref_latents) > 0 else torch.zeros(1, 4, 128, 128)
+        if image1 is not None and len(ref_latents) > 0:
+            samples = ref_latents[0]
+        else:
+            samples = torch.zeros(1, 4, 128, 128)
         latent_out = {"samples": samples}
         return (conditioning, resized_images[0], resized_images[1], resized_images[2], latent_out)
 
