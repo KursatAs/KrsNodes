@@ -38,7 +38,7 @@ In such cases two different approach can be followed;
 
 2. Advanced way; 
 
-Input Image -> TextEncodeQwenImageEditKrsAdvanced with vl_resolution set to default "384" -> Ksampler -> TextEncodeQwenImageEditKrsAdvanced extra latent output -> TextEncodeQwenImageEditKrsAdvanced with vl_resolution set to 1024 -> And Then your main -> Ksampler
+Input Image -> TextEncodeQwenImageEditKrsAdvanced with vl_resolution set to default "384" -> Ksampler -> TextEncodeQwenImageEditKrsAdvanced "with vl_resolution set to 1024" latent output -> And Then your main -> Ksampler
 
 -Keep the same prompt for both TextEncodeQwenImageEditKrsAdvanced nodes. Also same seed for both Ksampler nodes.
 -This way you can have both better clarity and prompt adherence, however it will require more VRAM and processing power.
