@@ -27,6 +27,7 @@ class TextEncodeQwenImageEditKrsAdvanced:
                 "image2": ("IMAGE",),
                 "image3": ("IMAGE",),
                 "custom_system_prompt": ("STRING", {"multiline": True, "default": ""}),
+                "upscale_method": (["lanczos", "bicubic", "area", "nearest"], {"default": "bicubic"}),
             },
         }
 
@@ -48,7 +49,7 @@ class TextEncodeQwenImageEditKrsAdvanced:
 
     CATEGORY = "utils/conditioning"
 
-    def encode(self, clip, prompt, alignment=32, vl_resolution=384, system_prompt="default", vae=None, image1=None, image2=None, image3=None, custom_system_prompt=""):
+    def encode(self, clip, prompt, alignment=32, vl_resolution=384, system_prompt="default", vae=None, image1=None, image2=None, image3=None, custom_system_prompt="", upscale_method="bicubic"):
         ref_latents = []
         images = [image1, image2, image3]
         images_vl = []
@@ -92,7 +93,7 @@ class TextEncodeQwenImageEditKrsAdvanced:
                 height = round(new_height)
                 width = round(new_width)
 
-                s = utils.common_upscale(samples, width, height, "lanczos", "center")
+                s = utils.common_upscale(samples, width, height, upscale_method, "center")
                 images_vl.append(s.movedim(1, -1))
 
                 # For VAE encoding (1024x1024 target resolution with alignment)
@@ -105,7 +106,7 @@ class TextEncodeQwenImageEditKrsAdvanced:
                     height = round(new_height / alignment) * alignment
                     width = round(new_width / alignment) * alignment
 
-                    s = utils.common_upscale(samples, width, height, "lanczos", "center")
+                    s = utils.common_upscale(samples, width, height, upscale_method, "center")
                     resized_vae_image = s.movedim(1, -1)[:, :, :, :3]
                     ref_latents.append(vae.encode(resized_vae_image))
 
