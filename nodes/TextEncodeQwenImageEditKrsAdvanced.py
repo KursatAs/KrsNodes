@@ -16,6 +16,7 @@ class TextEncodeQwenImageEditKrsAdvanced:
                     "INT",
                     {"default": 384, "min": 256, "max": 2048, "step": 64},
                 ),
+                "upscale_method": (["lanczos", "bicubic", "area", "nearest"], {"default": "bicubic"}),
                 "system_prompt": (
                     ["default", "minimal", "custom"],
                     {"default": "default"}
@@ -27,7 +28,6 @@ class TextEncodeQwenImageEditKrsAdvanced:
                 "image2": ("IMAGE",),
                 "image3": ("IMAGE",),
                 "custom_system_prompt": ("STRING", {"multiline": True, "default": ""}),
-                "upscale_method": (["lanczos", "bicubic", "area", "nearest"], {"default": "bicubic"}),
             },
         }
 
