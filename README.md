@@ -15,7 +15,15 @@ To install the Krs nodes for ComfyUI, follow these steps:
 
 - **QwenImageEditLatentKrs**: Latent creation with extra controls for Qwen Image Edit to feed samplers. Still experimental.
 
+
+- **CropPadAdvancedKrs**: Advanced Crop and Pad node with additional controls for precise image manipulation, ideal for outpainting operations.
+
 ![nodes.jpg](images/nodes.jpg)
+
+![nodes2.jpg](images/nodes2.jpg)
+
+Reference Photo by <a href="https://unsplash.com/@aminnaderloei?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">amin naderloei</a> on <a href="https://unsplash.com/photos/young-woman-peeking-through-tall-green-reeds-x-aW69vrYvQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> 
+
 
 
 

@@ -1,7 +1,7 @@
 [project]
 name = "krsnodes"
-description = "Some nodes for ComfyUI.\nCurrently for Qwen Image Edit for simple fix for well known Qwen Image Edit Shift -offset- Issue, as additionally to be able to adjust vl resolution for better clarity: \nTextEncodeQwenImageEditKrsSimple, TextEncodeQwenImageEditKrsAdvanced, QwenImageEditLatentKrs for latent creation "
-version = "1.0.2"
+description = "Some nodes for ComfyUI.\nCurrently for Qwen Image Edit for simple fix for well known Qwen Image Edit Shift -offset- Issue, as additionally to be able to adjust vl resolution for better clarity: \nTextEncodeQwenImageEditKrsSimple, TextEncodeQwenImageEditKrsAdvanced, QwenImageEditLatentKrs for latent creation, CropPadAdvancedKrs for better control over cropping and padding with advanced options, "
+version = "1.0.3"
 license = {file = "LICENSE"}
 # classifiers = [
 #     # For OS-independent nodes (works on all operating systems)
