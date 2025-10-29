@@ -94,7 +94,8 @@ class TextEncodeQwenImageEditKrsAdvanced:
                 width = round(new_width)
 
                 s = utils.common_upscale(samples, width, height, upscale_method, "center")
-                images_vl.append(s.movedim(1, -1))
+                # Adjust image tensor slicing to retain RGB channels
+                images_vl.append(s.movedim(1, -1)[:, :, :, :3])
 
                 # For VAE encoding (1024x1024 target resolution with alignment)
                 if vae is not None:
